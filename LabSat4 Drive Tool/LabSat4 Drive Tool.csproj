@@ -9,6 +9,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <PackageIcon>LS4.png</PackageIcon>
     <ApplicationIcon>LS4.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CyGsISc8fuXsR0FAs6XEbirLh0592/qediPS4Ipgyqie2BNL9GfcFIWNEuepXWyUMy+hSaE0WfDJ6TMorw7qsQ==",
+  "dgSpecHash": "FIpNpuur2jIK4K7EnhXPCZfQKajPwUko5vFwXN57tezuVy3Z+ulJPe/jtRbCe4nPlKnb8wvAV8iDmm1ZcMpxeQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Stephen Griffiths\\source\\repos\\LabSat4 Drive Tool\\LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj",
+  "projectFilePath": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Stephen Griffiths\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
-    "C:\\Users\\Stephen Griffiths\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512"
+    "C:\\Users\\ssgho\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
+    "C:\\Users\\ssgho\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

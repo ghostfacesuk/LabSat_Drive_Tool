@@ -24,7 +24,7 @@ namespace LabSat4_Drive_Tool
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex != -1)
+            if (comboBox1.SelectedItem != null)
             {
                 string selectedDiskDrive = comboBox1.SelectedItem.ToString();
 
@@ -35,20 +35,19 @@ namespace LabSat4_Drive_Tool
 
                     ProcessStartInfo processInfo = new ProcessStartInfo
                     {
-                        FileName = "mke2fs.exe",
+                        FileName = "cmd.exe",
                         RedirectStandardInput = true,
                         UseShellExecute = false,
-                        CreateNoWindow = true
+                        CreateNoWindow = true,
+                        Verb = "runas"  // Run the command prompt as administrator
                     };
 
                     Process process = new Process { StartInfo = processInfo };
                     process.Start();
 
-                    process.StandardInput.WriteLine($"-t ext4 PHYSICALDRIVE{physicalDriveNumber}");
-                    process.StandardInput.Flush();
-
-                    // Send ENTER key to confirm formatting
-                    process.StandardInput.WriteLine();
+                    // Run mke2fs.exe command within the command prompt
+                    process.StandardInput.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
+                    process.StandardInput.WriteLine();  // Send ENTER key press to confirm
                     process.StandardInput.Flush();
 
                     // Wait for the process to complete
@@ -62,6 +61,8 @@ namespace LabSat4_Drive_Tool
                 MessageBox.Show("Please select a disk drive first.");
             }
         }
+
+
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
