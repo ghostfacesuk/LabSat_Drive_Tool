@@ -38,7 +38,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(43, 60);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(508, 23);
+            comboBox1.Size = new Size(382, 23);
             comboBox1.TabIndex = 0;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -56,7 +56,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(481, 167);
             Controls.Add(button1);
             Controls.Add(comboBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");

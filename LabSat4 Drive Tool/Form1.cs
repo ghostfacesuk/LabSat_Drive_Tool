@@ -26,43 +26,50 @@ namespace LabSat4_Drive_Tool
         {
             if (comboBox1.SelectedItem != null)
             {
-                string selectedDiskDrive = comboBox1.SelectedItem.ToString();
-
-                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Caption='" + selectedDiskDrive + "'");
-                foreach (ManagementObject drive in searcher.Get())
+                // Run as administrator
+                ProcessStartInfo cmdProcessInfo = new ProcessStartInfo
                 {
-                    string physicalDriveNumber = drive["Index"].ToString();
+                    FileName = "cmd.exe",
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    Verb = "runas"  // Run the command prompt as administrator
+                };
 
-                    ProcessStartInfo processInfo = new ProcessStartInfo
+                Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
+                cmdProcess.Start();
+
+                // Iterate over selected disk drives
+                foreach (var item in comboBox1.Items)
+                {
+                    if (item is string selectedDiskDrive && !string.IsNullOrEmpty(selectedDiskDrive))
                     {
-                        FileName = "cmd.exe",
-                        RedirectStandardInput = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
-                        Verb = "runas"  // Run the command prompt as administrator
-                    };
+                        ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT * FROM Win32_DiskDrive WHERE Caption='{selectedDiskDrive}'");
+                        foreach (ManagementObject drive in searcher.Get())
+                        {
+                            string physicalDriveNumber = drive["Index"].ToString();
 
-                    Process process = new Process { StartInfo = processInfo };
-                    process.Start();
-
-                    // Run mke2fs.exe command within the command prompt
-                    process.StandardInput.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
-                    process.StandardInput.WriteLine();  // Send ENTER key press to confirm
-                    process.StandardInput.Flush();
-
-                    // Wait for the process to complete
-                    process.WaitForExit();
-
-                    MessageBox.Show($"Disk Drive {selectedDiskDrive} (Physical Drive {physicalDriveNumber}) has been formatted as EXT4.");
+                            // Run mke2fs.exe command within the command prompt
+                            cmdProcess.StandardInput?.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
+                            cmdProcess.StandardInput?.WriteLine();  // Send ENTER key press to confirm
+                            cmdProcess.StandardInput?.Flush();
+                        }
+                    }
                 }
+
+                // Close input stream to allow cmd.exe to exit
+                cmdProcess.StandardInput?.Close();
+
+                // Wait for cmd.exe process to exit
+                cmdProcess.WaitForExit();
+
+                MessageBox.Show("Selected drive has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
             }
             else
             {
                 MessageBox.Show("Please select a disk drive first.");
             }
         }
-
-
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
