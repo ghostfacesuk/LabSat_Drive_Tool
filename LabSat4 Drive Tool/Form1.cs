@@ -33,9 +33,6 @@ namespace LabSat4_Drive_Tool
                 {
                     string physicalDriveNumber = drive["Index"].ToString();
 
-                    Console.WriteLine($"Selected Disk Drive: {selectedDiskDrive}");
-                    Console.WriteLine($"Physical Drive Number: {physicalDriveNumber}");
-
                     ProcessStartInfo processInfo = new ProcessStartInfo
                     {
                         FileName = "mke2fs.exe",
@@ -47,17 +44,11 @@ namespace LabSat4_Drive_Tool
                     Process process = new Process { StartInfo = processInfo };
                     process.Start();
 
-                    Console.WriteLine("mke2fs.exe process started.");
-
                     process.StandardInput.WriteLine($"-t ext4 PHYSICALDRIVE{physicalDriveNumber}");
                     process.StandardInput.Flush();
 
-                    Console.WriteLine($"Command sent to mke2fs.exe: -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
-
                     // Wait for the process to complete
                     process.WaitForExit();
-
-                    Console.WriteLine("mke2fs.exe process completed.");
 
                     MessageBox.Show($"Disk Drive {selectedDiskDrive} (Physical Drive {physicalDriveNumber}) has been formatted as EXT4.");
                 }
@@ -66,6 +57,7 @@ namespace LabSat4_Drive_Tool
             {
                 MessageBox.Show("Please select a disk drive first.");
             }
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
