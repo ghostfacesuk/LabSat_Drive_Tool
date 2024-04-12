@@ -1,0 +1,29 @@
+Mke2fs for Windows
+    Format a file or volume to ext2 format file system.
+
+Original version: e2fsprogs 1.43.13
+Ported by: Matt <mattwu@163.com>
+Homepage:  http://www.ext2fsd.com
+
+Usage: mke2fs [-c|-l filename] [-b block-size] [-C cluster-size]
+       [-i bytes-per-inode] [-I inode-size] [-J journal-options]
+       [-G flex-group-size] [-N number-of-inodes]
+       [-m reserved-blocks-percentage] [-o creator-os]
+       [-g blocks-per-group] [-L volume-label] [-M last-mounted-directory]
+       [-O feature[,...]] [-r fs-revision] [-E extended-option[,...]]
+       [-t fs-type] [-T usage-type ] [-U UUID] [-jnqvDFKSV] device [blocks-count]
+
+Example:
+
+1, Format a file (ext2.img) to ext2 file system.
+   Warnings: Full path name of the file is needed.
+
+   mke2fs -b 1024 c:\temp\ext2.img  [or]
+   mke2fs -b 1024 \??\c:\temp\ext2.img
+
+2, Format volume x: to ext2 file system.
+   mke2fs -b 4096 -L Label x:    [or]
+   mke2fs -b 4096 -L Label \??\x:
+
+3, Format a partition8 of disk0 to ext4:
+   mke2fs -t ext4 \Device\Hardkdisk0\Partition8
