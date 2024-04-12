@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabSat4 Drive Tool", "LabSat4 Drive Tool\LabSat4 Drive Tool.csproj", "{8958295E-3565-4FAA-A8D6-8CE75A24B11B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8958295E-3565-4FAA-A8D6-8CE75A24B11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8958295E-3565-4FAA-A8D6-8CE75A24B11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8958295E-3565-4FAA-A8D6-8CE75A24B11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8958295E-3565-4FAA-A8D6-8CE75A24B11B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A876BDD-C40A-4005-A881-63589B73F97A}
+	EndGlobalSection
+EndGlobal
