@@ -47,6 +47,10 @@ namespace LabSat4_Drive_Tool
                     process.StandardInput.WriteLine($"-t ext4 PHYSICALDRIVE{physicalDriveNumber}");
                     process.StandardInput.Flush();
 
+                    // Send ENTER key to confirm formatting
+                    process.StandardInput.WriteLine();
+                    process.StandardInput.Flush();
+
                     // Wait for the process to complete
                     process.WaitForExit();
 
@@ -57,7 +61,6 @@ namespace LabSat4_Drive_Tool
             {
                 MessageBox.Show("Please select a disk drive first.");
             }
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
