@@ -1,6 +1,5 @@
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Management;
 using System.Windows.Forms;
 
@@ -19,7 +18,7 @@ namespace LabSat4_Drive_Tool
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
             foreach (ManagementObject drive in searcher.Get())
             {
-                comboBox1.Items.Add(drive["DeviceID"]);
+                comboBox1.Items.Add(drive["Caption"]);
             }
         }
 
@@ -29,58 +28,43 @@ namespace LabSat4_Drive_Tool
             {
                 string selectedDiskDrive = comboBox1.SelectedItem.ToString();
 
-                string mke2fsPath = @"C:\Program Files\Ext2Fsd\mke2fs.exe";
-
-                if (File.Exists(mke2fsPath))
+                ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive WHERE Caption='" + selectedDiskDrive + "'");
+                foreach (ManagementObject drive in searcher.Get())
                 {
+                    string physicalDriveNumber = drive["Index"].ToString();
+
+                    Console.WriteLine($"Selected Disk Drive: {selectedDiskDrive}");
+                    Console.WriteLine($"Physical Drive Number: {physicalDriveNumber}");
+
                     ProcessStartInfo processInfo = new ProcessStartInfo
                     {
-                        FileName = mke2fsPath,
-                        Arguments = $"-t ext4 {selectedDiskDrive}",
-                        UseShellExecute = true,
-                        Verb = "runas",
+                        FileName = "mke2fs.exe",
+                        RedirectStandardInput = true,
+                        UseShellExecute = false,
                         CreateNoWindow = true
                     };
 
-                    using (Process process = new Process { StartInfo = processInfo })
-                    {
-                        process.Start();
-                        process.WaitForExit();
-                    }
+                    Process process = new Process { StartInfo = processInfo };
+                    process.Start();
 
-                    MessageBox.Show($"Disk Drive {selectedDiskDrive} has been formatted as EXT4.");
-                }
-                else
-                {
-                    MessageBox.Show("Ext2Fsd tools not found. Please check the installation directory.");
+                    Console.WriteLine("mke2fs.exe process started.");
+
+                    process.StandardInput.WriteLine($"-t ext4 PHYSICALDRIVE{physicalDriveNumber}");
+                    process.StandardInput.Flush();
+
+                    Console.WriteLine($"Command sent to mke2fs.exe: -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
+
+                    // Wait for the process to complete
+                    process.WaitForExit();
+
+                    Console.WriteLine("mke2fs.exe process completed.");
+
+                    MessageBox.Show($"Disk Drive {selectedDiskDrive} (Physical Drive {physicalDriveNumber}) has been formatted as EXT4.");
                 }
             }
             else
             {
                 MessageBox.Show("Please select a disk drive first.");
-            }
-        }
-
-        private bool IsDiskInUse(int physicalDriveNumber)
-        {
-            try
-            {
-                using (Process process = new Process())
-                {
-                    process.StartInfo.FileName = "diskpart.exe";
-                    process.StartInfo.Arguments = $"select disk {physicalDriveNumber}";
-                    process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.RedirectStandardOutput = true;
-                    process.Start();
-                    process.WaitForExit();
-
-                    string output = process.StandardOutput.ReadToEnd();
-                    return output.Contains("Disk is being used by");
-                }
-            }
-            catch (Exception)
-            {
-                return true; // Assume the disk is in use if an exception occurs
             }
         }
 
