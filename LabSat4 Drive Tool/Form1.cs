@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Management;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LabSat4_Drive_Tool
@@ -36,36 +37,17 @@ namespace LabSat4_Drive_Tool
 
                 if (result == DialogResult.Yes)
                 {
-                    // Run as administrator
-                    ProcessStartInfo cmdProcessInfo = new ProcessStartInfo
-                    {
-                        FileName = "cmd.exe",
-                        RedirectStandardInput = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
-                        Verb = "runas"  // Run the command prompt as administrator
-                    };
+                    // Initialize the disk using diskpart
+                    RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
 
-                    Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
-                    cmdProcess.Start();
+                    // Wait for 5 seconds
+                    Thread.Sleep(2000);
 
-                    // Iterate over selected disk drives
-                    ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT * FROM Win32_DiskDrive WHERE Caption='{selectedDiskDrive}'");
-                    foreach (ManagementObject drive in searcher.Get())
-                    {
-                        string? physicalDriveNumber = drive["Index"].ToString();
+                    // Format the disk as EXT4 using mke2fs.exe
+                    RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
 
-                        // Run mke2fs.exe command within the command prompt
-                        cmdProcess.StandardInput.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
-                        cmdProcess.StandardInput.WriteLine();  // Send ENTER key press to confirm
-                        cmdProcess.StandardInput.Flush();
-                    }
-
-                    // Close input stream to allow cmd.exe to exit
-                    cmdProcess.StandardInput.Close();
-
-                    // Wait for cmd.exe process to exit
-                    cmdProcess.WaitForExit();
+                    // Wait for 5 seconds
+                    Thread.Sleep(5000);
 
                     MessageBox.Show($"Selected drive {selectedDiskDrive} has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
                 }
@@ -74,6 +56,60 @@ namespace LabSat4_Drive_Tool
             {
                 MessageBox.Show("Please select a disk drive first.");
             }
+        }
+
+        private int GetDiskNumber(string driveCaption)
+        {
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT * FROM Win32_DiskDrive WHERE Caption='{driveCaption}'");
+            foreach (ManagementObject drive in searcher.Get())
+            {
+                return Convert.ToInt32(drive["Index"]);
+            }
+            return -1;
+        }
+
+        private void RunDiskPart(params string[] commands)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "diskpart.exe",
+                RedirectStandardInput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Verb = "runas"
+            };
+
+            Process process = new Process { StartInfo = startInfo };
+            process.Start();
+
+            foreach (string command in commands)
+            {
+                process.StandardInput.WriteLine(command);
+            }
+
+            process.StandardInput.WriteLine("exit");
+            process.WaitForExit();
+        }
+
+        private void RunCommand(string command)
+        {
+            ProcessStartInfo cmdProcessInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe",
+                RedirectStandardInput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                Verb = "runas"
+            };
+
+            Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
+            cmdProcess.Start();
+
+            cmdProcess.StandardInput.WriteLine(command);
+            cmdProcess.StandardInput.Flush();
+            cmdProcess.StandardInput.Close();
+
+            cmdProcess.WaitForExit();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
