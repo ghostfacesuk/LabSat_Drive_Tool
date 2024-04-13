@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             comboBox1 = new ComboBox();
             button1 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // comboBox1
@@ -52,11 +53,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(124, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 15);
+            label1.TabIndex = 2;
+            label1.Click += label1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 167);
+            ClientSize = new Size(481, 123);
+            Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(comboBox1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -64,11 +75,13 @@
             Text = "LabSat4 Drive Tool";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private ComboBox comboBox1;
         private Button button1;
+        private Label label1;
     }
 }

@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|solutionrelative:labsat4 drive tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\labsat4 drive tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|solutionrelative:labsat4 drive tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\labsat4 drive tool\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|solutionrelative:labsat4 drive tool\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\labsat4 drive tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|solutionrelative:labsat4 drive tool\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8958295E-3565-4FAA-A8D6-8CE75A24B11B}|LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj|C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\labsat4 drive tool\\labsat4 drive tool.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
@@ -41,11 +41,12 @@
               "ToolTip": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj",
               "RelativeToolTip": "LabSat4 Drive Tool\\LabSat4 Drive Tool.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-12T20:03:35.829Z"
+              "WhenOpened": "2024-04-12T20:03:35.829Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "app.manifest",
               "DocumentMoniker": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\app.manifest",
               "RelativeDocumentMoniker": "LabSat4 Drive Tool\\app.manifest",
@@ -53,7 +54,8 @@
               "RelativeToolTip": "LabSat4 Drive Tool\\app.manifest",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAABOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2024-04-12T19:50:32.17Z"
+              "WhenOpened": "2024-04-12T19:50:32.17Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -63,21 +65,22 @@
               "RelativeDocumentMoniker": "LabSat4 Drive Tool\\Form1.cs",
               "ToolTip": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\Form1.cs",
               "RelativeToolTip": "LabSat4 Drive Tool\\Form1.cs",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAwwGAAAAAvAAAA",
+              "ViewState": "AQIAABgAAAAAAAAAAAAWwDkAAACVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T19:21:06.711Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\Form1.cs",
               "RelativeDocumentMoniker": "LabSat4 Drive Tool\\Form1.cs",
               "ToolTip": "C:\\Users\\ssgho\\source\\repos\\LabSat_Drive_Tool\\LabSat4 Drive Tool\\Form1.cs [Design]",
               "RelativeToolTip": "LabSat4 Drive Tool\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-12T19:20:49.043Z"
+              "WhenOpened": "2024-04-12T19:20:49.043Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

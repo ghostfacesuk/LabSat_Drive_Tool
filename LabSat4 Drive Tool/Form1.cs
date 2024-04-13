@@ -37,6 +37,8 @@ namespace LabSat4_Drive_Tool
 
                 if (result == DialogResult.Yes)
                 {
+                    label1.Text = "Please wait, drive is formatting...";
+
                     if (selectedDiskDrive != null)
                     {
                         // Initialize the disk using diskpart
@@ -50,6 +52,8 @@ namespace LabSat4_Drive_Tool
 
                         // Wait for 5 seconds
                         Thread.Sleep(5000);
+
+                        label1.Text = "Please remove drive and connect to LabSat4";
 
                         MessageBox.Show($"Selected drive {selectedDiskDrive} has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
                     }
@@ -123,6 +127,11 @@ namespace LabSat4_Drive_Tool
         private void Form1_Load(object sender, EventArgs e)
         {
             // Add any necessary logic here
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
