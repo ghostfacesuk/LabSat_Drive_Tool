@@ -26,44 +26,49 @@ namespace LabSat4_Drive_Tool
         {
             if (comboBox1.SelectedItem != null)
             {
-                // Run as administrator
-                ProcessStartInfo cmdProcessInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    RedirectStandardInput = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    Verb = "runas"  // Run the command prompt as administrator
-                };
+                string? selectedDiskDrive = comboBox1.SelectedItem.ToString();
 
-                Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
-                cmdProcess.Start();
+                // Display a warning message
+                DialogResult result = MessageBox.Show($"Are you sure you want to format: \n{selectedDiskDrive} as EXT4?\n\nAll data will be lost.",
+                                                       "Warning",
+                                                       MessageBoxButtons.YesNo,
+                                                       MessageBoxIcon.Warning);
 
-                // Iterate over selected disk drives
-                foreach (var item in comboBox1.Items)
+                if (result == DialogResult.Yes)
                 {
-                    if (item is string selectedDiskDrive && !string.IsNullOrEmpty(selectedDiskDrive))
+                    // Run as administrator
+                    ProcessStartInfo cmdProcessInfo = new ProcessStartInfo
                     {
-                        ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT * FROM Win32_DiskDrive WHERE Caption='{selectedDiskDrive}'");
-                        foreach (ManagementObject drive in searcher.Get())
-                        {
-                            string physicalDriveNumber = drive["Index"].ToString();
+                        FileName = "cmd.exe",
+                        RedirectStandardInput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        Verb = "runas"  // Run the command prompt as administrator
+                    };
 
-                            // Run mke2fs.exe command within the command prompt
-                            cmdProcess.StandardInput?.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
-                            cmdProcess.StandardInput?.WriteLine();  // Send ENTER key press to confirm
-                            cmdProcess.StandardInput?.Flush();
-                        }
+                    Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
+                    cmdProcess.Start();
+
+                    // Iterate over selected disk drives
+                    ManagementObjectSearcher searcher = new ManagementObjectSearcher($"SELECT * FROM Win32_DiskDrive WHERE Caption='{selectedDiskDrive}'");
+                    foreach (ManagementObject drive in searcher.Get())
+                    {
+                        string? physicalDriveNumber = drive["Index"].ToString();
+
+                        // Run mke2fs.exe command within the command prompt
+                        cmdProcess.StandardInput.WriteLine($"mke2fs.exe -t ext4 PHYSICALDRIVE{physicalDriveNumber}");
+                        cmdProcess.StandardInput.WriteLine();  // Send ENTER key press to confirm
+                        cmdProcess.StandardInput.Flush();
                     }
+
+                    // Close input stream to allow cmd.exe to exit
+                    cmdProcess.StandardInput.Close();
+
+                    // Wait for cmd.exe process to exit
+                    cmdProcess.WaitForExit();
+
+                    MessageBox.Show($"Selected drive {selectedDiskDrive} has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
                 }
-
-                // Close input stream to allow cmd.exe to exit
-                cmdProcess.StandardInput?.Close();
-
-                // Wait for cmd.exe process to exit
-                cmdProcess.WaitForExit();
-
-                MessageBox.Show("Selected drive has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
             }
             else
             {
