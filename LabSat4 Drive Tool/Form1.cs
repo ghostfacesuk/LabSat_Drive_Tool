@@ -37,19 +37,22 @@ namespace LabSat4_Drive_Tool
 
                 if (result == DialogResult.Yes)
                 {
-                    // Initialize the disk using diskpart
-                    RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
+                    if (selectedDiskDrive != null)
+                    {
+                        // Initialize the disk using diskpart
+                        RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
 
-                    // Wait for 5 seconds
-                    Thread.Sleep(2000);
+                        // Wait for 5 seconds
+                        Thread.Sleep(2000);
 
-                    // Format the disk as EXT4 using mke2fs.exe
-                    RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
+                        // Format the disk as EXT4 using mke2fs.exe
+                        RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
 
-                    // Wait for 5 seconds
-                    Thread.Sleep(5000);
+                        // Wait for 5 seconds
+                        Thread.Sleep(5000);
 
-                    MessageBox.Show($"Selected drive {selectedDiskDrive} has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
+                        MessageBox.Show($"Selected drive {selectedDiskDrive} has been formatted as EXT4.\nPlease disconnect and connect to LabSat4");
+                    }
                 }
             }
             else
