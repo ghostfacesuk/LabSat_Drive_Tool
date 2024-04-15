@@ -1,0 +1,7 @@
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\LabSat4 Drive Tool.exe
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\LabSat4 Drive Tool.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\LabSat4 Drive Tool.deps.json
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\LabSat4 Drive Tool.runtimeconfig.json
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\LabSat4 Drive Tool.pdb
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\System.Management.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Debug\runtimes\win\lib\net8.0\System.Management.dll

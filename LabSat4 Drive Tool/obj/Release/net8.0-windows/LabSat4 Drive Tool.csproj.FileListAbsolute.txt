@@ -1,0 +1,21 @@
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\LabSat4 Drive Tool.exe
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\LabSat4 Drive Tool.deps.json
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\LabSat4 Drive Tool.runtimeconfig.json
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\LabSat4 Drive Tool.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\LabSat4 Drive Tool.pdb
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\System.Management.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\bin\Release\net8.0-windows\runtimes\win\lib\net8.0\System.Management.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.csproj.AssemblyReference.cache
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4_Drive_Tool.Form1.resources
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.csproj.GenerateResource.cache
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.AssemblyInfoInputs.cache
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.AssemblyInfo.cs
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.csproj.CoreCompileInputs.cache
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.sourcelink.json
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.csproj.CopyComplete
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\refint\LabSat4 Drive Tool.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.pdb
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\LabSat4 Drive Tool.genruntimeconfig.cache
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Release\net8.0-windows\ref\LabSat4 Drive Tool.dll
