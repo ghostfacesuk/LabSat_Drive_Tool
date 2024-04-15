@@ -1,5 +1,5 @@
 # LabSat4 Drive Tool
-![LabSat4 Drive Tool](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/LS4.png)
+![LabSat4 Drive Tool](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/UI.png)
 
 ## Requirements
 - .Net 8 
