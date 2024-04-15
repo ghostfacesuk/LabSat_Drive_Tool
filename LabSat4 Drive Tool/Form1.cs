@@ -12,6 +12,25 @@ namespace LabSat4_Drive_Tool
         {
             InitializeComponent();
             PopulateDriveList();
+            CheckAndCopyExt2fsd();
+        }
+
+        private void CheckAndCopyExt2fsd()
+        {
+            string sourceFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ext2fsd.sys");
+            string destinationFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), "drivers", "ext2fsd.sys");
+
+            if (!File.Exists(destinationFilePath))
+            {
+                try
+                {
+                    File.Copy(sourceFilePath, destinationFilePath);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error copying ext2fsd.sys: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void PopulateDriveList()
@@ -44,7 +63,7 @@ namespace LabSat4_Drive_Tool
                         // Initialize the disk using diskpart
                         RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
 
-                        // Wait for 5 seconds
+                        // Wait for 2 seconds
                         Thread.Sleep(2000);
 
                         // Format the disk as EXT4 using mke2fs.exe

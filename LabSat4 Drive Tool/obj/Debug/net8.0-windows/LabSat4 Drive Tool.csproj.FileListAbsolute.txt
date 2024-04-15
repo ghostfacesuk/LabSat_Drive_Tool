@@ -39,3 +39,4 @@ C:\Users\ssgho\source\repos\LabSat_Drive_Tool\LabSat4 Drive Tool\obj\Debug\net8.
 C:\Users\ssgho\source\repos\LabSat_Drive_Tool\LabSat4 Drive Tool\obj\Debug\net8.0-windows\LabSat4 Drive Tool.pdb
 C:\Users\ssgho\source\repos\LabSat_Drive_Tool\LabSat4 Drive Tool\obj\Debug\net8.0-windows\LabSat4 Drive Tool.genruntimeconfig.cache
 C:\Users\ssgho\source\repos\LabSat_Drive_Tool\LabSat4 Drive Tool\obj\Debug\net8.0-windows\ref\LabSat4 Drive Tool.dll
+C:\Users\Stephen Griffiths\source\repos\LabSat4 Drive Tool\LabSat4 Drive Tool\obj\Debug\net8.0-windows\LabSat4 Drive Tool.sourcelink.json
