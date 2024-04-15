@@ -1,12 +1,12 @@
 # LabSat4 Drive Tool
-![LabSat4 Drive Tool](https://github.com/ghostfacesuk/Dayz_Logs/blob/main/UI.png
+![LabSat4 Drive Tool](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/LS4.png)
 
 ## Requirements
 - .Net 8 
 - Admin privileges on account
 
 ## Download
-[Installer.Zip file](https://github.com/ghostfacesuk/Dayz_Logs/blob/main/DayZ_Log/bin/Release/net8.0-windows7.0/DayZ%20Crash%20Report%20App%201.0.3.zip)
+[Installer.Zip file](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/LabSat4%20Drive%20Tool%20Installer/Debug/Installer.zip)
 
 ## Usage 
 - Download zip file and extract folder to PC (Windows only)
