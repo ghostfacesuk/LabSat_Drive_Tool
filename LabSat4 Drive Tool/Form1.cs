@@ -67,7 +67,7 @@ namespace LabSat4_Drive_Tool
                         Thread.Sleep(2000);
 
                         // Format the disk as EXT4 using mke2fs.exe
-                        RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
+                        RunCommand($"mke2fs.exe -t ext4 -cc PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
 
                         // Wait for 5 seconds
                         Thread.Sleep(5000);
@@ -123,6 +123,7 @@ namespace LabSat4_Drive_Tool
             {
                 FileName = "cmd.exe",
                 RedirectStandardInput = true,
+                RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true,
                 Verb = "runas"
@@ -131,11 +132,22 @@ namespace LabSat4_Drive_Tool
             Process cmdProcess = new Process { StartInfo = cmdProcessInfo };
             cmdProcess.Start();
 
+            // Send command to cmd.exe
             cmdProcess.StandardInput.WriteLine(command);
-            cmdProcess.StandardInput.Flush();
-            cmdProcess.StandardInput.Close();
+            cmdProcess.StandardInput.WriteLine("exit");
 
+            // Wait for the process to finish
             cmdProcess.WaitForExit();
+
+            // Optionally, read the output (standard or error)
+            string output = cmdProcess.StandardOutput.ReadToEnd();
+
+            // After process ends
+            cmdProcess.Close();
+
+            // Update the UI or log based on the output or the fact the process has finished
+            Console.WriteLine(output);
+            MessageBox.Show("Formatting completed.");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

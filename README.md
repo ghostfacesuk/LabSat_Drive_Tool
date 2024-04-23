@@ -6,7 +6,7 @@
 - Admin privileges on account
 
 ## Download
-[Installer.Zip file](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/LabSat4%20Drive%20Tool%20Installer/Debug/Installer.zip)
+[Installer.zip file](https://github.com/ghostfacesuk/LabSat_Drive_Tool/blob/main/LabSat4%20Drive%20Tool%20Installer/Debug/Installer.zip)
 
 ## Usage 
 - Download zip file and extract folder to PC (Windows only)
