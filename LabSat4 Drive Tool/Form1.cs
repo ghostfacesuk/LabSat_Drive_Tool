@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Management;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -76,17 +77,15 @@ namespace LabSat4_Drive_Tool
             if (selectedDiskDrive != null)
             {
                 RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
-
-                // Sleep is generally not recommended for use in production code; consider alternative synchronization.
-                Thread.Sleep(2000);
-
+                Thread.Sleep(2000); // Consider replacing with a more robust synchronization method.
                 RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
+                EjectDrive($"PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
             }
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object? sender, RunWorkerCompletedEventArgs e)
         {
-            label1.Text = "Formatting complete.";
+            label1.Text = "Formatting complete. Please remove drive.";
             MessageBox.Show("Formatting completed. Please disconnect and connect to LabSat4");
         }
 
@@ -138,37 +137,34 @@ namespace LabSat4_Drive_Tool
             using (Process cmdProcess = new Process { StartInfo = cmdProcessInfo })
             {
                 cmdProcess.Start();
-
-                // Send command to cmd.exe
                 cmdProcess.StandardInput.WriteLine(command);
                 cmdProcess.StandardInput.WriteLine("exit");
-                cmdProcess.StandardInput.Close(); // Ensure no more input is going to be sent
-
-                // Read the output as it is produced
+                cmdProcess.StandardInput.Close();
                 string output = cmdProcess.StandardOutput.ReadToEnd();
-
-                // Wait for the process to finish
                 cmdProcess.WaitForExit();
-
-                // After process ends
                 Console.WriteLine(output);
-                MessageBox.Show("Formatting completed.");
             }
+        }
+
+        private void EjectDrive(string driveLetter)
+        {
+            // This method should be implemented as discussed, using the CreateFile and DeviceIoControl functions.
+            // Implementation details for DeviceIoControl and CreateFile can be complex and require proper understanding of P/Invoke.
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Add any necessary logic here
+            // Add any necessary logic here.
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Add any necessary logic here
+            // Add any necessary logic here.
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            // Add any necessary logic here
+            // Add any necessary logic here.
         }
     }
 }

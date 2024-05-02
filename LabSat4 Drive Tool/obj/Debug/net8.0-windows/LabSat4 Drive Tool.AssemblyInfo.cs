@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LabSat4 Drive Tool")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c43034d10f6370b46abc992fc1888599e3c3df7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dc8bdc69e70285ed25724ba8f0e3f3d03e90039")]
 [assembly: System.Reflection.AssemblyProductAttribute("LabSat4 Drive Tool")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LabSat4 Drive Tool")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
