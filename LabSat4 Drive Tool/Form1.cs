@@ -78,7 +78,8 @@ namespace LabSat4_Drive_Tool
             {
                 RunDiskPart($"select disk {GetDiskNumber(selectedDiskDrive)}", "clean");
                 Thread.Sleep(2000); // Consider replacing with a more robust synchronization method.
-                RunCommand($"mke2fs.exe -t ext4 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
+                // Updated mke2fs command to fully initialize the disk during formatting
+                RunCommand($"mke2fs.exe -t ext4 -E lazy_itable_init=0,lazy_journal_init=0 PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
                 EjectDrive($"PHYSICALDRIVE{GetDiskNumber(selectedDiskDrive)}");
             }
         }
