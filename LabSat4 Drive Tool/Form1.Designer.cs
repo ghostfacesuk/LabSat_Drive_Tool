@@ -32,12 +32,14 @@
             comboBox1 = new ComboBox();
             button1 = new Button();
             label1 = new Label();
+            progressBar1 = new ProgressBar();
+            button2 = new Button();
             SuspendLayout();
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(43, 60);
+            comboBox1.Location = new Point(98, 28);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(382, 23);
             comboBox1.TabIndex = 0;
@@ -45,7 +47,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(43, 31);
+            button1.Location = new Point(17, 57);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -56,17 +58,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(124, 35);
+            label1.Location = new Point(98, 95);
             label1.Name = "label1";
             label1.Size = new Size(0, 15);
             label1.TabIndex = 2;
             label1.Click += label1_Click;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(98, 57);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(382, 23);
+            progressBar1.Style = ProgressBarStyle.Marquee;
+            progressBar1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(17, 28);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 4;
+            button2.Text = "Refresh";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 123);
+            ClientSize = new Size(495, 128);
+            Controls.Add(button2);
+            Controls.Add(progressBar1);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(comboBox1);
@@ -83,5 +105,7 @@
         private ComboBox comboBox1;
         private Button button1;
         private Label label1;
+        private ProgressBar progressBar1;
+        private Button button2;
     }
 }
